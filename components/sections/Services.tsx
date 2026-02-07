@@ -16,8 +16,8 @@ export function Services() {
 
   const cardColors = [
     "from-primary-50 to-orange-50/50",
-    "from-blue-50/50 to-primary-50",
-    "from-green-50/50 to-primary-50",
+    "from-orange-50/50 to-primary-50",
+    "from-amber-50/50 to-orange-50/50",
   ];
 
   return (

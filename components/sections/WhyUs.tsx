@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, Target, Scale, CheckCircle2, XCircle, AlertTriangle } from "lucide-react";
+import { Clock, Target, Scale, AlertTriangle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui";
 import { siteConfig } from "@/lib/config";
 
@@ -80,7 +80,7 @@ export function WhyUs() {
         </div>
 
         {/* Important Callout */}
-        <div className="relative mb-16">
+        <div className="relative">
           <div className="bg-gradient-to-r from-amber-50 via-amber-50 to-orange-50 border border-amber-200/80 rounded-3xl p-8 sm:p-10 overflow-hidden">
             {/* Decorative Elements */}
             <div className="absolute -right-12 -top-12 w-40 h-40 bg-amber-200/30 rounded-full blur-2xl" aria-hidden="true" />
@@ -101,91 +101,6 @@ export function WhyUs() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* What We Do / What We Don't */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {/* What We Do */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <Card variant="bordered" className="border-green-200 bg-gradient-to-br from-green-50/80 to-white overflow-hidden h-full">
-              <CardContent className="p-8 relative">
-                {/* Decorative icon */}
-                <div className="absolute -right-8 -top-8 w-32 h-32 text-green-100/80">
-                  <CheckCircle2 className="w-full h-full" />
-                </div>
-
-                <div className="relative">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
-                      <CheckCircle2 className="w-6 h-6 text-green-600" aria-hidden="true" />
-                    </div>
-                    <h3 className="text-xl font-bold text-green-800">
-                      {whyUs.whatWeDo.title}
-                    </h3>
-                  </div>
-
-                  <ul className="space-y-4" role="list">
-                    {whyUs.whatWeDo.items.map((item, index) => (
-                      <li
-                        key={index}
-                        className="flex items-start gap-3 text-green-900 group/item"
-                      >
-                        <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-green-200 transition-colors">
-                          <CheckCircle2
-                            className="w-4 h-4 text-green-600"
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <span className="leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* What We Don't */}
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-red-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <Card variant="bordered" className="border-red-200 bg-gradient-to-br from-red-50/80 to-white overflow-hidden h-full">
-              <CardContent className="p-8 relative">
-                {/* Decorative icon */}
-                <div className="absolute -right-8 -top-8 w-32 h-32 text-red-100/80">
-                  <XCircle className="w-full h-full" />
-                </div>
-
-                <div className="relative">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center">
-                      <XCircle className="w-6 h-6 text-red-500" aria-hidden="true" />
-                    </div>
-                    <h3 className="text-xl font-bold text-red-800">
-                      {whyUs.whatWeDont.title}
-                    </h3>
-                  </div>
-
-                  <ul className="space-y-4" role="list">
-                    {whyUs.whatWeDont.items.map((item, index) => (
-                      <li
-                        key={index}
-                        className="flex items-start gap-3 text-red-900 group/item"
-                      >
-                        <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-red-200 transition-colors">
-                          <XCircle
-                            className="w-4 h-4 text-red-500"
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <span className="leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>

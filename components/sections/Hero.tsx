@@ -61,24 +61,28 @@ export function Hero() {
             </span>
           </div>
 
-          {/* Main Headline */}
+          {/* Main Headline - Company Name */}
           <h1
             id="hero-heading"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in-up"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up"
           >
-            <span className="block">{hero.headline.split(',')[0]},</span>
-            <span className="bg-gradient-to-r from-primary-400 via-primary-300 to-primary-400 bg-clip-text text-transparent">
-              {hero.headline.split(',')[1]}
+            <span className="bg-gradient-to-r from-white via-primary-200 to-white bg-clip-text text-transparent">
+              {hero.headline}
             </span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-base sm:text-lg text-neutral-300 mb-10 leading-relaxed animate-fade-in-up animation-delay-100">
+          {/* Subheadline - Expertise */}
+          <p className="text-xl sm:text-2xl md:text-3xl text-primary-300 font-semibold mb-6 animate-fade-in-up animation-delay-100">
             {hero.subheadline}
           </p>
 
+          {/* Description */}
+          <p className="text-base sm:text-lg text-neutral-300 mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
+            {hero.description}
+          </p>
+
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-in-up animation-delay-200">
+          <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-in-up animation-delay-300">
             <Button
               size="lg"
               onClick={() => handleCtaClick(hero.ctaPrimary.href)}

@@ -53,6 +53,14 @@ export function Process() {
           <p className="text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
             {process.sectionSubtitle}
           </p>
+          {process.timeline && (
+            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/30">
+              <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="text-sm font-medium text-primary-300">{process.timeline}</span>
+            </div>
+          )}
         </div>
 
         {/* Process Steps */}
@@ -106,6 +114,14 @@ export function Process() {
                     <p className="text-neutral-400 text-sm leading-relaxed max-w-xs group-hover:text-neutral-300 transition-colors duration-300">
                       {step.description}
                     </p>
+                    {step.duration && (
+                      <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/20">
+                        <svg className="w-3.5 h-3.5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span className="text-xs font-medium text-primary-300">{step.duration}</span>
+                      </div>
+                    )}
 
                     {/* Mobile/Tablet arrow indicator */}
                     {!isLast && (

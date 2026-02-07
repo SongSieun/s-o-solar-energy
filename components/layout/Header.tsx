@@ -85,7 +85,7 @@ export function Header() {
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-3 group"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
@@ -93,25 +93,34 @@ export function Header() {
             aria-label="S&O Solar Energy 홈"
           >
             <div className="relative">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-primary-400 to-primary-500 flex items-center justify-center transition-all duration-300 group-hover:shadow-glow group-hover:scale-105">
-                <Sun className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-primary-400 to-primary-500 flex items-center justify-center transition-all duration-300 group-hover:shadow-glow group-hover:scale-105 shadow-md">
+                <Sun className="w-6 h-6 sm:w-7 sm:h-7 text-white" aria-hidden="true" />
               </div>
               {/* Glow effect */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary-400 to-primary-500 blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg sm:text-xl text-neutral-900 leading-tight">
+              <span className={cn(
+                "font-bold text-xl sm:text-2xl leading-tight tracking-tight transition-colors duration-300",
+                isScrolled ? "text-neutral-900" : "text-white"
+              )}>
                 {siteConfig.company.name}
               </span>
-              <span className="text-[10px] text-neutral-500 font-medium tracking-wider hidden sm:block">
-                SOLAR CONSULTING
+              <span className={cn(
+                "text-xs font-semibold tracking-wide hidden sm:block transition-colors duration-300",
+                isScrolled ? "text-primary-600" : "text-primary-300"
+              )}>
+                태양광 독립 자문
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
-            <div className="flex items-center bg-neutral-100/60 rounded-full p-1">
+            <div className={cn(
+              "flex items-center rounded-full p-1 transition-all duration-300",
+              isScrolled ? "bg-neutral-100/60" : "bg-white/10 backdrop-blur-sm"
+            )}>
               {siteConfig.nav.items.map((item) => {
                 const isActive = activeSection === item.href.replace("#", "");
                 return (
@@ -121,9 +130,13 @@ export function Header() {
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={cn(
                       "relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
-                      isActive
-                        ? "text-neutral-900 bg-white shadow-sm"
-                        : "text-neutral-600 hover:text-neutral-900"
+                      isScrolled
+                        ? (isActive
+                          ? "text-neutral-900 bg-white shadow-sm"
+                          : "text-neutral-600 hover:text-neutral-900")
+                        : (isActive
+                          ? "text-white bg-white/20 shadow-sm"
+                          : "text-neutral-200 hover:text-white")
                     )}
                   >
                     {item.label}
@@ -161,7 +174,9 @@ export function Header() {
               "md:hidden relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300",
               isMenuOpen
                 ? "bg-neutral-900 text-white"
-                : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+                : isScrolled
+                ? "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+                : "bg-white/20 backdrop-blur-sm text-white hover:bg-white/30"
             )}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
