@@ -122,7 +122,7 @@ export function Contact() {
           </div>
           <h2
             id="contact-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-5"
+            className="text-3xl sm:text-4xl lg:text-4xl font-bold text-neutral-900 mb-5"
           >
             {contact.sectionTitle}
           </h2>
@@ -244,7 +244,7 @@ export function Contact() {
           {/* Direct Contact Info */}
           <div className="space-y-6">
             {/* Image showcase */}
-            <div className="relative rounded-2xl overflow-hidden shadow-lg mb-8">
+            <div className="relative rounded-xl overflow-hidden shadow-lg mb-8">
               <Image
                 src={images.contact}
                 alt="태양광 설치 현장"
@@ -280,7 +280,7 @@ export function Contact() {
                   href={`tel:${company.phone.replace(/-/g, "")}`}
                   className="flex items-center gap-4 p-5"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
                     <Phone className="w-6 h-6 text-primary-700" aria-hidden="true" />
                   </div>
                   <div>
@@ -300,7 +300,7 @@ export function Contact() {
                   href={`mailto:${company.email}`}
                   className="flex items-center gap-4 p-5"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
                     <Mail className="w-6 h-6 text-primary-700" aria-hidden="true" />
                   </div>
                   <div>
@@ -314,7 +314,7 @@ export function Contact() {
             </Card>
 
             {/* Business Hours */}
-            <div className="bg-gradient-to-br from-neutral-50 to-primary-50/30 rounded-2xl p-6 border border-neutral-100">
+            <div className="bg-gradient-to-br from-neutral-50 to-primary-50/30 rounded-xl p-6 border border-neutral-100">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
                   <Clock className="w-5 h-5 text-primary-600" />

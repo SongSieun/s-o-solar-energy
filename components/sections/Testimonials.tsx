@@ -28,7 +28,7 @@ export function Testimonials() {
           </div>
           <h2
             id="testimonials-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-5"
+            className="text-3xl sm:text-4xl lg:text-4xl font-bold text-neutral-900 mb-5"
           >
             {testimonials.sectionTitle}
           </h2>

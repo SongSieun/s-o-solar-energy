@@ -28,7 +28,7 @@ export function WhyUs() {
           </div>
           <h2
             id="why-us-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-5"
+            className="text-3xl sm:text-4xl lg:text-4xl font-bold text-neutral-900 mb-5"
           >
             {whyUs.sectionTitle}
           </h2>
@@ -88,7 +88,7 @@ export function WhyUs() {
 
             <div className="relative flex items-start gap-5">
               <div className="flex-shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-400 flex items-center justify-center shadow-lg">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-400 to-orange-400 flex items-center justify-center shadow-lg">
                   <AlertTriangle className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
               </div>
@@ -118,7 +118,7 @@ export function WhyUs() {
 
                 <div className="relative">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-green-100 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
                       <CheckCircle2 className="w-6 h-6 text-green-600" aria-hidden="true" />
                     </div>
                     <h3 className="text-xl font-bold text-green-800">
@@ -159,7 +159,7 @@ export function WhyUs() {
 
                 <div className="relative">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center">
                       <XCircle className="w-6 h-6 text-red-500" aria-hidden="true" />
                     </div>
                     <h3 className="text-xl font-bold text-red-800">

@@ -64,7 +64,7 @@ export function Hero() {
           {/* Main Headline */}
           <h1
             id="hero-heading"
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 animate-fade-in-up"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-fade-in-up"
           >
             <span className="block">{hero.headline.split(',')[0]},</span>
             <span className="bg-gradient-to-r from-primary-400 via-primary-300 to-primary-400 bg-clip-text text-transparent">
@@ -73,7 +73,7 @@ export function Hero() {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-neutral-300 mb-10 leading-relaxed animate-fade-in-up animation-delay-100">
+          <p className="text-base sm:text-lg text-neutral-300 mb-10 leading-relaxed animate-fade-in-up animation-delay-100">
             {hero.subheadline}
           </p>
 

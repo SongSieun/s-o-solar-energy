@@ -31,7 +31,7 @@ export function About() {
 
             <div className="relative">
               {/* Main image */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl">
                 <Image
                   src={images.about || images.hero}
                   alt={about.founder.name}
@@ -69,7 +69,7 @@ export function About() {
 
             <h2
               id="about-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-5"
+              className="text-3xl sm:text-4xl lg:text-4xl font-bold text-neutral-900 mb-5"
             >
               {about.sectionTitle}
             </h2>

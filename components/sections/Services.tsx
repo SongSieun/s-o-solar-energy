@@ -39,7 +39,7 @@ export function Services() {
           </div>
           <h2
             id="services-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-5"
+            className="text-3xl sm:text-4xl lg:text-4xl font-bold text-neutral-900 mb-5"
           >
             {services.sectionTitle}
           </h2>
@@ -74,7 +74,7 @@ export function Services() {
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 via-neutral-900/20 to-transparent" />
 
                   {/* Icon badge on image */}
-                  <div className="absolute top-4 left-4 w-14 h-14 rounded-2xl bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                  <div className="absolute top-4 left-4 w-14 h-14 rounded-xl bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-lg">
                     {IconComponent && (
                       <IconComponent
                         className="w-7 h-7 text-primary-600"
@@ -86,7 +86,7 @@ export function Services() {
 
                 <CardHeader className="relative pt-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-500 shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-500 shadow-sm">
                       {IconComponent && (
                         <IconComponent
                           className="w-6 h-6 text-primary-700"

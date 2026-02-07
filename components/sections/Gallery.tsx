@@ -34,7 +34,7 @@ export function Gallery() {
           </div>
           <h2
             id="gallery-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5"
+            className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white mb-5"
           >
             {gallery.sectionTitle}
           </h2>
@@ -52,7 +52,7 @@ export function Gallery() {
             return (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-2xl ${
+                className={`group relative overflow-hidden rounded-xl ${
                   isLarge ? 'sm:col-span-2 sm:row-span-2' : ''
                 } h-64 ${isLarge ? 'sm:h-full' : ''}`}
               >

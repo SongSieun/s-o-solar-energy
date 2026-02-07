@@ -46,7 +46,7 @@ export function Process() {
           </div>
           <h2
             id="process-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5"
+            className="text-3xl sm:text-4xl lg:text-4xl font-bold text-white mb-5"
           >
             {process.sectionTitle}
           </h2>
