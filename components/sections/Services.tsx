@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { ClipboardCheck, BarChart3, FileSearch, ArrowRight } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui";
-import { DataChart, DocumentIllustration } from "@/components/graphics";
 import { siteConfig } from "@/lib/config";
 
 const iconMap = {
@@ -11,79 +11,8 @@ const iconMap = {
   FileSearch,
 };
 
-// Modern Feasibility Check Illustration
-function FeasibilityIllustration() {
-  return (
-    <svg viewBox="0 0 200 120" className="w-full h-auto" aria-hidden="true">
-      {/* Building */}
-      <rect x="30" y="50" width="60" height="50" rx="4" fill="#f5f5f5" />
-      <rect x="40" y="60" width="15" height="12" rx="2" fill="#e5e5e5" />
-      <rect x="65" y="60" width="15" height="12" rx="2" fill="#e5e5e5" />
-      <rect x="40" y="80" width="15" height="20" rx="2" fill="#d4d4d4" />
-      <rect x="65" y="80" width="15" height="12" rx="2" fill="#e5e5e5" />
-
-      {/* Roof Solar Panels with gradient */}
-      <defs>
-        <linearGradient id="solarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#fbbf24" />
-          <stop offset="100%" stopColor="#f59e0b" />
-        </linearGradient>
-      </defs>
-      <polygon points="30,50 60,28 90,50" fill="url(#solarGradient)" />
-      <line x1="45" y1="44" x2="45" y2="34" stroke="#d97706" strokeWidth="1.5" />
-      <line x1="60" y1="44" x2="60" y2="28" stroke="#d97706" strokeWidth="1.5" />
-      <line x1="75" y1="44" x2="75" y2="34" stroke="#d97706" strokeWidth="1.5" />
-
-      {/* Sun with glow effect */}
-      <circle cx="150" cy="35" r="20" fill="#fef3c7" opacity="0.6" />
-      <circle cx="150" cy="35" r="14" fill="#fde68a" />
-      <circle cx="150" cy="35" r="10" fill="#fbbf24" />
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
-        <line
-          key={i}
-          x1={150 + Math.cos((angle * Math.PI) / 180) * 18}
-          y1={35 + Math.sin((angle * Math.PI) / 180) * 18}
-          x2={150 + Math.cos((angle * Math.PI) / 180) * 26}
-          y2={35 + Math.sin((angle * Math.PI) / 180) * 26}
-          stroke="#fbbf24"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-      ))}
-
-      {/* Modern Checklist Card */}
-      <rect x="108" y="62" width="76" height="52" rx="8" fill="white" filter="url(#shadow)" />
-      <defs>
-        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="2" stdDeviation="4" floodOpacity="0.1" />
-        </filter>
-      </defs>
-      {[0, 1, 2].map((i) => (
-        <g key={i}>
-          <circle cx="122" cy={76 + i * 14} r="5" fill="#dcfce7" />
-          <path
-            d={`M119 ${76 + i * 14} L121 ${78 + i * 14} L125 ${74 + i * 14}`}
-            stroke="#22c55e"
-            strokeWidth="2"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <rect x="132" y={73 + i * 14} width="44" height="6" rx="3" fill="#f5f5f5" />
-        </g>
-      ))}
-    </svg>
-  );
-}
-
 export function Services() {
-  const { services } = siteConfig;
-
-  const illustrations = [
-    <FeasibilityIllustration key="feasibility" />,
-    <DataChart key="chart" variant="line" />,
-    <DocumentIllustration key="document" />,
-  ];
+  const { services, images } = siteConfig;
 
   const cardColors = [
     "from-primary-50 to-orange-50/50",
@@ -132,10 +61,26 @@ export function Services() {
                 {/* Gradient background on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${cardColors[index]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                {/* Illustration Area */}
-                <div className="relative bg-gradient-to-br from-neutral-50 to-primary-50/30 p-6 sm:p-8 border-b border-neutral-100/80">
-                  <div className="h-32 sm:h-36 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                    {illustrations[index]}
+                {/* Image Area */}
+                <div className="relative h-48 sm:h-56 overflow-hidden">
+                  <Image
+                    src={images.services}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 via-neutral-900/20 to-transparent" />
+
+                  {/* Icon badge on image */}
+                  <div className="absolute top-4 left-4 w-14 h-14 rounded-2xl bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                    {IconComponent && (
+                      <IconComponent
+                        className="w-7 h-7 text-primary-600"
+                        aria-hidden="true"
+                      />
+                    )}
                   </div>
                 </div>
 

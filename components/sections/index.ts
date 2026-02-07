@@ -4,5 +4,6 @@ export { Process } from "./Process";
 export { WhyUs } from "./WhyUs";
 export { Testimonials } from "./Testimonials";
 export { About } from "./About";
+export { Gallery } from "./Gallery";
 export { FAQ } from "./FAQ";
 export { Contact } from "./Contact";

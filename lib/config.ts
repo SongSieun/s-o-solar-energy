@@ -29,6 +29,7 @@ export const siteConfig = {
     whyUs: "/images/IMG_8308.JPG",          // Why Us 섹션 이미지
     contact: "/images/IMG_8308.JPG",        // 연락처 섹션 이미지
     about: "/images/IMG_8308.JPG",          // 대표자 소개 섹션 이미지
+    gallery: "/images/IMG_8308.JPG",        // 갤러리 섹션 이미지
     // 추가 이미지가 필요하면 여기에 추가하세요
     // gallery1: "/images/gallery-1.jpg",
     // gallery2: "/images/gallery-2.jpg",
@@ -59,6 +60,7 @@ export const siteConfig = {
       { label: "왜 S&O인가", href: "#why-us" },
       { label: "고객 후기", href: "#testimonials" },
       { label: "대표자 소개", href: "#about" },
+      { label: "프로젝트", href: "#gallery" },
       { label: "FAQ", href: "#faq" },
       { label: "문의하기", href: "#contact" },
     ],
@@ -295,6 +297,57 @@ export const siteConfig = {
         icon: "Lightbulb",
         title: "실무 중심 분석",
         description: "이론이 아닌 실제 현장 데이터 기반 분석",
+      },
+    ],
+  },
+
+  // Gallery Section
+  gallery: {
+    sectionTitle: "프로젝트 갤러리",
+    sectionSubtitle: "다양한 규모와 유형의 태양광 프로젝트 사례를 확인해보세요",
+    disclaimer: "실제 프로젝트 사진은 고객 동의 하에 게시됩니다",
+    items: [
+      {
+        title: "대형 상업시설 옥상",
+        description: "물류센터 태양광 발전 시스템",
+        location: "경기도",
+        capacity: "500kW",
+        icon: "Building2",
+      },
+      {
+        title: "공장 지붕 설치",
+        description: "제조업체 자가소비형 태양광",
+        location: "충청남도",
+        capacity: "300kW",
+        icon: "Factory",
+      },
+      {
+        title: "주택용 태양광",
+        description: "단독주택 소규모 태양광",
+        location: "서울",
+        capacity: "10kW",
+        icon: "Home",
+      },
+      {
+        title: "농업시설 태양광",
+        description: "온실 및 농지 태양광 발전",
+        location: "전라남도",
+        capacity: "200kW",
+        icon: "Factory",
+      },
+      {
+        title: "대규모 지상 설치",
+        description: "태양광 발전단지 프로젝트",
+        location: "강원도",
+        capacity: "1MW",
+        icon: "Building2",
+      },
+      {
+        title: "상가건물 옥상",
+        description: "다세대 건물 공용 태양광",
+        location: "부산",
+        capacity: "50kW",
+        icon: "Building2",
       },
     ],
   },
