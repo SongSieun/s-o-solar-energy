@@ -2,11 +2,25 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 
+const NAV_ITEMS = [
+  { key: "services", href: "#services" },
+  { key: "process", href: "#process" },
+  { key: "whyUs", href: "#why-us" },
+  { key: "about", href: "#about" },
+  { key: "gallery", href: "#gallery" },
+  { key: "faq", href: "#faq" },
+  { key: "contact", href: "#contact" },
+] as const;
+
 export function Header() {
+  const t = useTranslations("nav");
+  const tc = useTranslations("common");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -15,7 +29,6 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
 
-      // Update active section based on scroll position
       const sections = ["hero", "services", "process", "why-us", "faq", "contact"];
       const scrollPosition = window.scrollY + 100;
 
@@ -79,7 +92,7 @@ export function Header() {
       <nav
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
         role="navigation"
-        aria-label="주요 내비게이션"
+        aria-label={t("mainNav")}
       >
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
@@ -90,7 +103,7 @@ export function Header() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            aria-label="S&O Solar Energy 홈"
+            aria-label={t("homeLink")}
           >
             <div className="relative">
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-primary-400 to-primary-500 flex items-center justify-center transition-all duration-300 group-hover:shadow-glow group-hover:scale-105 shadow-md">
@@ -110,18 +123,18 @@ export function Header() {
                 "text-xs font-semibold tracking-wide hidden sm:block transition-colors duration-300",
                 isScrolled ? "text-primary-600" : "text-primary-300"
               )}>
-                태양광 독립 자문
+                {tc("solarAdvisory")}
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-3">
             <div className={cn(
               "flex items-center rounded-full p-1 transition-all duration-300",
               isScrolled ? "bg-neutral-100/60" : "bg-white/10 backdrop-blur-sm"
             )}>
-              {siteConfig.nav.items.map((item) => {
+              {NAV_ITEMS.map((item) => {
                 const isActive = activeSection === item.href.replace("#", "");
                 return (
                   <a
@@ -139,11 +152,12 @@ export function Header() {
                           : "text-neutral-200 hover:text-white")
                     )}
                   >
-                    {item.label}
+                    {t(item.key)}
                   </a>
                 );
               })}
             </div>
+            <LanguageSwitcher isScrolled={isScrolled} />
           </div>
 
           {/* Desktop CTA */}
@@ -162,7 +176,7 @@ export function Header() {
               }}
               className="btn-gradient group"
             >
-              <span>{siteConfig.nav.ctaLabel}</span>
+              <span>{t("ctaLabel")}</span>
               <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
@@ -181,9 +195,9 @@ export function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            aria-label={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+            aria-label={isMenuOpen ? t("menuClose") : t("menuOpen")}
           >
-            <span className="sr-only">{isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}</span>
+            <span className="sr-only">{isMenuOpen ? t("menuClose") : t("menuOpen")}</span>
             {isMenuOpen ? (
               <X className="w-5 h-5" aria-hidden="true" />
             ) : (
@@ -205,7 +219,7 @@ export function Header() {
         >
           <div className="h-full overflow-y-auto px-6 py-8">
             <div className="space-y-2">
-              {siteConfig.nav.items.map((item, index) => {
+              {NAV_ITEMS.map((item, index) => {
                 const isActive = activeSection === item.href.replace("#", "");
                 return (
                   <a
@@ -222,10 +236,15 @@ export function Header() {
                     style={{ animationDelay: `${index * 50}ms` }}
                     tabIndex={isMenuOpen ? 0 : -1}
                   >
-                    {item.label}
+                    {t(item.key)}
                   </a>
                 );
               })}
+            </div>
+
+            {/* Language Switcher in Mobile */}
+            <div className="mt-6 flex justify-center">
+              <LanguageSwitcher isScrolled={true} />
             </div>
 
             <div className="mt-8 pt-8 border-t border-neutral-100">
@@ -247,13 +266,13 @@ export function Header() {
                 }}
                 tabIndex={isMenuOpen ? 0 : -1}
               >
-                <span>{siteConfig.nav.ctaLabel}</span>
+                <span>{t("ctaLabel")}</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
 
               {/* Contact info in mobile menu */}
               <div className="mt-8 text-center">
-                <p className="text-sm text-neutral-500 mb-2">문의 전화</p>
+                <p className="text-sm text-neutral-500 mb-2">{t("callUs")}</p>
                 <a
                   href={`tel:${siteConfig.company.phone.replace(/-/g, "")}`}
                   className="text-lg font-semibold text-neutral-900 hover:text-primary-600 transition-colors"

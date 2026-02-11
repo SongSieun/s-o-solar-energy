@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { ChevronDown, Sparkles } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui";
 import { siteConfig } from "@/lib/config";
 
 export function Hero() {
-  const { hero, images } = siteConfig;
+  const t = useTranslations("hero");
+  const { images } = siteConfig;
 
   const handleCtaClick = (href: string) => {
     const targetId = href.replace("#", "");
@@ -41,9 +43,7 @@ export function Hero() {
           sizes="100vw"
           quality={90}
         />
-        {/* Gradient overlay - 왼쪽은 읽기 쉽게, 오른쪽은 이미지 보이게 */}
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/90 via-neutral-900/70 to-neutral-900/40 lg:from-neutral-900/85 lg:via-neutral-900/50 lg:to-transparent" />
-        {/* 하단 그라디언트 */}
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 via-transparent to-neutral-900/30" />
       </div>
 
@@ -57,46 +57,46 @@ export function Hero() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6 animate-fade-in">
             <Sparkles className="w-4 h-4 text-primary-400" />
             <span className="text-sm font-medium text-primary-300 tracking-wide">
-              {hero.subheadlineEnglish}
+              {t("subheadlineEnglish")}
             </span>
           </div>
 
-          {/* Main Headline - Company Name */}
+          {/* Main Headline */}
           <h1
             id="hero-heading"
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up"
           >
             <span className="bg-gradient-to-r from-white via-primary-200 to-white bg-clip-text text-transparent">
-              {hero.headline}
+              {t("headline")}
             </span>
           </h1>
 
-          {/* Subheadline - Expertise */}
+          {/* Subheadline */}
           <p className="text-xl sm:text-2xl md:text-3xl text-primary-300 font-semibold mb-6 animate-fade-in-up animation-delay-100">
-            {hero.subheadline}
+            {t("subheadline")}
           </p>
 
           {/* Description */}
           <p className="text-base sm:text-lg text-neutral-300 mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
-            {hero.description}
+            {t("description")}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-in-up animation-delay-300">
             <Button
               size="lg"
-              onClick={() => handleCtaClick(hero.ctaPrimary.href)}
+              onClick={() => handleCtaClick("#contact")}
               className="w-full sm:w-auto btn-gradient shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              {hero.ctaPrimary.label}
+              {t("ctaPrimary")}
             </Button>
             <Button
               size="lg"
               variant="outline"
-              onClick={() => handleCtaClick(hero.ctaSecondary.href)}
+              onClick={() => handleCtaClick("#services")}
               className="w-full sm:w-auto border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300"
             >
-              {hero.ctaSecondary.label}
+              {t("ctaSecondary")}
             </Button>
           </div>
         </div>
@@ -107,7 +107,7 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 animate-bounce-soft"
         aria-hidden="true"
       >
-        <span className="text-xs text-white/60 font-medium">스크롤</span>
+        <span className="text-xs text-white/60 font-medium">{t("scroll")}</span>
         <div className="w-8 h-12 rounded-full border-2 border-white/30 flex items-start justify-center p-2 bg-white/5 backdrop-blur-sm">
           <ChevronDown className="w-4 h-4 text-white/60 animate-bounce" />
         </div>

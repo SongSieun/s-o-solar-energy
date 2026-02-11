@@ -1,7 +1,13 @@
+"use client";
+
 import { Sun, Mail, Phone, MapPin } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { siteConfig } from "@/lib/config";
 
 export function Footer() {
+  const t = useTranslations("footer");
+  const { company } = siteConfig;
+
   return (
     <footer className="bg-neutral-900 text-neutral-300" role="contentinfo">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,42 +20,42 @@ export function Footer() {
                 <Sun className="w-6 h-6 text-neutral-900" aria-hidden="true" />
               </div>
               <span className="font-semibold text-xl text-white">
-                {siteConfig.company.name}
+                {company.name}
               </span>
             </div>
             <p className="text-neutral-400 max-w-md mb-4 leading-relaxed">
-              {siteConfig.footer.description}
+              {t("description")}
             </p>
             <p className="font-mono text-sm text-primary-400">
-              {siteConfig.footer.motto}
+              {t("motto")}
             </p>
           </div>
 
           {/* Contact Column */}
           <div>
-            <h3 className="text-white font-semibold mb-4">연락처</h3>
+            <h3 className="text-white font-semibold mb-4">{t("contactTitle")}</h3>
             <ul className="space-y-3">
               <li>
                 <a
-                  href={`tel:${siteConfig.company.phone.replace(/-/g, "")}`}
+                  href={`tel:${company.phone.replace(/-/g, "")}`}
                   className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors group"
                 >
                   <Phone className="w-4 h-4 text-neutral-500 group-hover:text-primary-500 transition-colors" aria-hidden="true" />
-                  <span>{siteConfig.company.phone}</span>
+                  <span>{company.phone}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href={`mailto:${siteConfig.company.email}`}
+                  href={`mailto:${company.email}`}
                   className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors group"
                 >
                   <Mail className="w-4 h-4 text-neutral-500 group-hover:text-primary-500 transition-colors" aria-hidden="true" />
-                  <span>{siteConfig.company.email}</span>
+                  <span>{company.email}</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-neutral-400">
                 <MapPin className="w-4 h-4 text-neutral-500 mt-1 flex-shrink-0" aria-hidden="true" />
-                <span>{siteConfig.company.address}</span>
+                <span>{company.address}</span>
               </li>
             </ul>
           </div>
@@ -58,27 +64,33 @@ export function Footer() {
         {/* Disclaimer */}
         <div className="py-6 border-t border-neutral-800">
           <p className="text-xs text-neutral-500 leading-relaxed">
-            {siteConfig.footer.disclaimer}
+            {t("disclaimer")}
           </p>
         </div>
 
         {/* Copyright */}
         <div className="py-6 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-neutral-500">
-            {siteConfig.footer.copyright}
+            {`\u00A9 ${new Date().getFullYear()} S&O Solar Energy. All rights reserved.`}
           </p>
-          <nav aria-label="푸터 링크">
+          <nav aria-label={t("footerLinks")}>
             <ul className="flex items-center gap-6">
-              {siteConfig.footer.links.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-neutral-500 hover:text-neutral-300 transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="/privacy"
+                  className="text-sm text-neutral-500 hover:text-neutral-300 transition-colors"
+                >
+                  {t("privacyPolicy")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms"
+                  className="text-sm text-neutral-500 hover:text-neutral-300 transition-colors"
+                >
+                  {t("termsOfUse")}
+                </a>
+              </li>
             </ul>
           </nav>
         </div>

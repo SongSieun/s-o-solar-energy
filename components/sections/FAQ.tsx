@@ -1,10 +1,21 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Accordion, AccordionItem } from "@/components/ui";
-import { siteConfig } from "@/lib/config";
+
+const FAQ_ITEMS = [
+  { qKey: "q1", aKey: "a1" },
+  { qKey: "q2", aKey: "a2" },
+  { qKey: "q3", aKey: "a3" },
+  { qKey: "q4", aKey: "a4" },
+  { qKey: "q5", aKey: "a5" },
+  { qKey: "q6", aKey: "a6" },
+  { qKey: "q7", aKey: "a7" },
+  { qKey: "q8", aKey: "a8" },
+] as const;
 
 export function FAQ() {
-  const { faq } = siteConfig;
+  const t = useTranslations("faq");
 
   return (
     <section
@@ -13,29 +24,27 @@ export function FAQ() {
       aria-labelledby="faq-heading"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-14 sm:mb-16">
           <h2
             id="faq-heading"
             className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4"
           >
-            {faq.sectionTitle}
+            {t("sectionTitle")}
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            {faq.sectionSubtitle}
+            {t("sectionSubtitle")}
           </p>
         </div>
 
-        {/* FAQ Items */}
         <div className="bg-white rounded-xl shadow-sm p-6 sm:p-8">
           <Accordion>
-            {faq.items.map((item, index) => (
+            {FAQ_ITEMS.map((item, index) => (
               <AccordionItem
                 key={index}
-                title={item.question}
+                title={t(item.qKey)}
                 defaultOpen={index === 0}
               >
-                <p>{item.answer}</p>
+                <p>{t(item.aKey)}</p>
               </AccordionItem>
             ))}
           </Accordion>
