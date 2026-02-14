@@ -242,9 +242,9 @@ export function Contact() {
           </div>
 
           {/* Direct Contact Info */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {/* Image showcase */}
-            <div className="relative rounded-xl overflow-hidden shadow-lg mb-8">
+            <div className="relative rounded-xl overflow-hidden shadow-lg mb-6">
               <Image
                 src={images.contact}
                 alt="태양광 설치 현장"
@@ -253,71 +253,71 @@ export function Contact() {
                 className="w-full h-48 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 via-neutral-900/20 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="flex items-center gap-3 bg-white/95 backdrop-blur-sm rounded-xl p-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center">
+              <div className="absolute bottom-3 left-3 right-3">
+                <div className="flex items-center gap-3 bg-white/95 backdrop-blur-sm rounded-xl p-2.5">
+                  <div className="w-9 h-9 rounded-lg bg-primary-100 flex items-center justify-center">
                     <Sun className="w-5 h-5 text-primary-600" />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-neutral-900">무료 사전 상담</p>
-                    <p className="text-xs text-neutral-500">부담없이 문의하세요</p>
+                    <p className="text-[11px] text-neutral-500">부담없이 문의하세요</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <h3 className="text-xl font-bold text-neutral-900 mb-2">
+            <h3 className="text-xl font-bold text-neutral-900 mb-1">
               {contact.directContact.title}
             </h3>
-            <p className="text-neutral-600 mb-6">
+            <p className="text-neutral-600 mb-4">
               직접 연락을 원하시면 아래 연락처로 문의해 주세요.
             </p>
 
             {/* Phone Card */}
-            <Card variant="bordered" className="group hover:border-primary-300 hover:shadow-soft transition-all duration-300 overflow-hidden">
-              <CardContent className="p-0">
+            <Card variant="bordered" className="group hover:border-primary-300 hover:shadow-soft transition-all duration-300 overflow-hidden min-h-[108px]">
+              <CardContent className="p-0 h-full">
                 <a
                   href={`tel:${company.phone.replace(/-/g, "")}`}
-                  className="flex items-center gap-4 p-5"
+                  className="flex items-center gap-3.5 p-4 h-full"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
-                    <Phone className="w-6 h-6 text-primary-700" aria-hidden="true" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
+                    <Phone className="w-5 h-5 text-primary-700" aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-sm text-neutral-500 mb-1">
+                    <p className="text-xs text-neutral-500 mb-1">
                       {contact.directContact.phoneLabel}
                     </p>
-                    <p className="text-lg font-bold text-neutral-900 group-hover:text-primary-700 transition-colors">{company.phone}</p>
+                    <p className="text-base font-bold text-neutral-900 group-hover:text-primary-700 transition-colors">{company.phone}</p>
                   </div>
                 </a>
               </CardContent>
             </Card>
 
             {/* Email Card */}
-            <Card variant="bordered" className="group hover:border-primary-300 hover:shadow-soft transition-all duration-300 overflow-hidden">
-              <CardContent className="p-0">
+            <Card variant="bordered" className="group hover:border-primary-300 hover:shadow-soft transition-all duration-300 overflow-hidden min-h-[108px]">
+              <CardContent className="p-0 h-full">
                 <a
                   href={`mailto:${company.email}`}
-                  className="flex items-center gap-4 p-5"
+                  className="flex items-center gap-3.5 p-4 h-full"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
-                    <Mail className="w-6 h-6 text-primary-700" aria-hidden="true" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-all duration-300">
+                    <Mail className="w-5 h-5 text-primary-700" aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-sm text-neutral-500 mb-1">
+                    <p className="text-xs text-neutral-500 mb-1">
                       {contact.directContact.emailLabel}
                     </p>
-                    <p className="text-lg font-bold text-neutral-900 group-hover:text-primary-700 transition-colors break-all">{company.email}</p>
+                    <p className="text-base font-bold text-neutral-900 group-hover:text-primary-700 transition-colors break-all">{company.email}</p>
                   </div>
                 </a>
               </CardContent>
             </Card>
 
             {/* Business Hours */}
-            <div className="bg-gradient-to-br from-neutral-50 to-primary-50/30 rounded-xl p-6 border border-neutral-100">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
-                  <Clock className="w-5 h-5 text-primary-600" />
+            <div className="bg-gradient-to-br from-neutral-50 to-primary-50/30 rounded-xl p-4 border border-neutral-100">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                  <Clock className="w-[18px] h-[18px] text-primary-600" />
                 </div>
                 <h4 className="font-semibold text-neutral-900">영업 시간</h4>
               </div>
@@ -330,9 +330,9 @@ export function Contact() {
                   <span className="text-neutral-600">주말/공휴일</span>
                   <span className="font-medium text-neutral-500">휴무</span>
                 </div>
-                <div className="pt-3 mt-3 border-t border-neutral-200">
-                  <p className="text-neutral-500 flex items-center gap-2">
-                    <Mail className="w-4 h-4" />
+                <div className="pt-2.5 mt-2.5 border-t border-neutral-200">
+                  <p className="text-neutral-500 flex items-center gap-2 text-xs">
+                    <Mail className="w-3.5 h-3.5" />
                     이메일 문의는 24시간 접수됩니다
                   </p>
                 </div>
@@ -340,8 +340,8 @@ export function Contact() {
             </div>
 
             {/* Location hint */}
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-primary-50/50 border border-primary-100">
-              <MapPin className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 p-3.5 rounded-xl bg-primary-50/50 border border-primary-100">
+              <MapPin className="w-[18px] h-[18px] text-primary-600 flex-shrink-0 mt-0.5" />
               <p className="text-sm text-primary-800">
                 전국 어디서나 온라인 상담이 가능합니다. 필요시 현장 방문 상담도 진행합니다.
               </p>

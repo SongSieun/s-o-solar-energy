@@ -49,7 +49,7 @@ export function Services() {
         </div>
 
         {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {services.items.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
             return (

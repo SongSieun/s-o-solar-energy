@@ -6,5 +6,6 @@ export { WhyUs } from "./WhyUs";
 export { Testimonials } from "./Testimonials";
 export { About } from "./About";
 export { Gallery } from "./Gallery";
+export { CaseStudies } from "./CaseStudies";
 export { FAQ } from "./FAQ";
 export { Contact } from "./Contact";
