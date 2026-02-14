@@ -30,9 +30,12 @@ export const siteConfig = {
     contact: "/images/IMG_8308.JPG",        // 연락처 섹션 이미지
     about: "/images/IMG_8308.JPG",          // 대표자 소개 섹션 이미지
     gallery: "/images/IMG_8308.JPG",        // 갤러리 섹션 이미지
-    // 추가 이미지가 필요하면 여기에 추가하세요
-    // gallery1: "/images/gallery-1.jpg",
-    // gallery2: "/images/gallery-2.jpg",
+    materials: {
+      aluminum: "/images/materials/aluminum-process.png",
+      posmac: "/images/materials/posmac-process.png",
+      hotDip: "/images/materials/hotdip-process.png",
+      hBeam: "/images/materials/hbeam-process.png",
+    },
   },
 
   // SEO & Metadata
@@ -393,24 +396,28 @@ export const siteConfig = {
         name: "알루미늄",
         description: "경량 · 고내식성 · 빠른 시공",
         icon: "Layers",
+        processImage: "aluminum",
       },
       {
         id: "posmac",
         name: "포스맥(PosMAC)",
         description: "고내식성 도금강판 · 가성비 우수",
         icon: "Shield",
+        processImage: "posmac",
       },
       {
         id: "hot-dip",
         name: "용융아연도금",
         description: "전통적 방식 · 높은 내구성",
         icon: "Flame",
+        processImage: "hotDip",
       },
       {
         id: "h-beam",
         name: "H빔",
         description: "대형 구조물 · 높은 강성",
         icon: "Columns",
+        processImage: "hBeam",
       },
     ],
     items: [

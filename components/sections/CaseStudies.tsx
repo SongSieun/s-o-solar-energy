@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   Building2,
   Factory,
@@ -41,6 +42,10 @@ export function CaseStudies() {
   const activeCategoryData = materialCases.categories.find(
     (cat) => cat.id === activeCategory
   );
+
+  const { images } = siteConfig;
+  const processImageKey = activeCategoryData?.processImage as keyof typeof images.materials | undefined;
+  const processImageSrc = processImageKey ? images.materials[processImageKey] : null;
 
   return (
     <section
@@ -110,12 +115,32 @@ export function CaseStudies() {
           })}
         </div>
 
-        {/* Active Category Description */}
+        {/* Process Image + Description */}
         {activeCategoryData && (
-          <div className="text-center mb-10">
-            <p className="text-neutral-500 text-sm font-medium">
+          <div className="mb-12 sm:mb-16">
+            <p className="text-center text-neutral-500 text-sm font-medium mb-6">
               {activeCategoryData.description}
             </p>
+            {processImageSrc && (
+              <div className="max-w-3xl mx-auto">
+                <div className="bg-white rounded-2xl border border-neutral-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                  <div className="p-3 sm:p-4 bg-neutral-50 border-b border-neutral-100">
+                    <h3 className="text-sm font-semibold text-neutral-700 text-center">
+                      {activeCategoryData.name} 시공 프로세스
+                    </h3>
+                  </div>
+                  <div className="relative aspect-square sm:aspect-[4/3]">
+                    <Image
+                      src={processImageSrc}
+                      alt={`${activeCategoryData.name} 시공 프로세스 단계별 안내`}
+                      fill
+                      className="object-contain p-2 sm:p-4"
+                      sizes="(max-width: 768px) 100vw, 768px"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
 
